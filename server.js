@@ -27,14 +27,13 @@ app.use(stylus.middleware({
 //var MongoURL = process.env.MONGO_URL;
 //mongoose.connect("MongoURL");
 
-//
-//if(env === "development"){
-//	mongoose.connect("mongodb://localhost/mean-sample");
-//}
-//else {
-//	mongoose.connect("mongodb://admin:G00dF00d@ds049641.mongolab.com:49641/mean-sample")
-//}
-mongoose.connect("mongodb://admin:G00dF00d@ds049641.mongolab.com:49641/mean-sample")
+
+if(env === "development"){
+	mongoose.connect("mongodb://localhost/mean-sample");
+}
+else {
+	mongoose.connect("mongodb://admin:G00dF00d@ds049641.mongolab.com:49641/mean-sample")
+}
 
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error ... "));
