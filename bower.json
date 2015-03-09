@@ -6,12 +6,8 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
     "node_modules",
-    "bower_components",
-    "public/vendor",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "jquery": "~2.1.3",
