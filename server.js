@@ -23,8 +23,19 @@ app.use(stylus.middleware({
 	compile: compile
 }
 ));
+//Doesnt seem to work
+//var MongoURL = process.env.MONGO_URL;
+//mongoose.connect("MongoURL");
 
-mongoose.connect("mongodb://localhost/mean-sample");
+
+if(env === "development"){
+	mongoose.connect("mongodb://localhost/mean-sample");
+}
+else {
+	mongoose.connect("mongodb://admin:G00dF00d@ds049641.mongolab.com:49641/mean-sample")
+}
+
+
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error ... "));
 db.once("open", function callback() {
