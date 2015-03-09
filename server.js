@@ -1,7 +1,8 @@
 var express = require("express");
 var stylus = require("stylus");
 var logger = require("morgan");
-//var bodyParser = require("body-parser");
+var bodyParser = require("body-parser");
+var mongoose = require("mongoose");
 var env = process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
 var app = express();
@@ -13,12 +14,19 @@ function compile(str, path) {
 app.set("views", __dirname + "/server/views");
 app.set("view engine", "jade");
 app.use(logger("dev"));
-//app.use(bodyParser);
+app.use(bodyParser);
 app.use(stylus.middleware({
 	src: __dirname + "/public",
 	compile: compile
 }
 ));
+
+mongoose.connect("mongodb://localhost/mean-sample");
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error ... "));
+db.once("open", function callback() {
+	console.log("mean-sample db opened");
+});
 
 app.use(express.static(__dirname + "/public"));
 app.get("/partials/:partialPath", function(req, res){
