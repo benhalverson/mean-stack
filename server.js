@@ -52,6 +52,6 @@ app.get("*", function(req, res){
 	});
 });
 
-var port = 4000;
+var port = process.env.PORT || 4000;
 app.listen(port);
 console.log("Listening on port " + port + "...");
