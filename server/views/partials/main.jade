@@ -1,2 +1,10 @@
-h1 This is a Partial
-h2 {{ message }}
+.container
+  .jumbotron
+    h1 Some website header
+    p Welcome to another website. Blah blah
+
+  .row
+    .col-md-6
+      div(ng-include="'/partials/featured-course'")
+    .col-md-6
+      div(ng-include="'/partials/new-courses'")
