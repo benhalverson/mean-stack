@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 app.use(stylus.middleware({
-	src: __dirname + "/public",
+	src: __dirname + "/public_dir",
 	compile: compile
 }
 ));
@@ -41,9 +41,9 @@ db.once("open", function callback() {
 	console.log("mean-sample db opened");
 });
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public_dir"));
 app.get("/partials/*", function(req, res){
-	res.render("../../public/app/" + req.params[0]);
+	res.render("../../public_dir/app/" + req.params[0]);
 });
 //client side will handle routing
 app.get("*", function(req, res){
