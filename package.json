@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines":{
+  "engines": {
     "node": "0.10.x",
     "npm": "1.4.x"
   },
@@ -18,6 +18,8 @@
     "jade": "^1.9.2",
     "mongoose": "^3.8.24",
     "morgan": "^1.5.1",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
     "stylus": "^0.50.0"
   },
   "devDependencies": {
