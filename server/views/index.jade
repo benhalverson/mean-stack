@@ -9,8 +9,7 @@ block main-content
         ul.nav.navbar-nav
           li
             a(href="/") Home
-          li
-            a(href="/#") Link 2
+        div(ng-include="'/partials/navbar-login'")
   section.content
     div(ng-view)
 
