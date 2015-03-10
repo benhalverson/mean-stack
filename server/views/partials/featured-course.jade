@@ -1,3 +1,5 @@
 .panel.panel-primary
   .panel-heading.text-center Featured Courses
-  .pandel-body Body goes here
+  .pandel-body
+    .row(ng-repeat="course in courses | filter: {featured: true}")
+      .col-md-12 {{course.name}}
