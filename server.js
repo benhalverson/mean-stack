@@ -43,7 +43,7 @@ db.once("open", function callback() {
 
 app.use(express.static(__dirname + "/public"));
 app.get("/partials/*", function(req, res){
-	res.render("partials/" + req.params[0]);
+	res.render("../../public/app/" + req.params[0]);
 });
 //client side will handle routing
 app.get("*", function(req, res){
